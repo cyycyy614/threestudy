@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>svg animation</title>
+		<style>
+			body { margin: 0; }
+            #line {
+                stroke-dasharray: 1;
+                animation-name: fill-line;
+                animation-duration: 5s;
+            }
+            @keyframes fill-line {
+                from {
+                    stroke-dashoffset: 1;
+                }
+                to {
+                    stroke-dashoffset: 0;
+                }
+            }
+            .text{
+                font-size: 64px;
+                font-weight: bold;
+                text-transform: uppercase;
+                fill: none;
+                stroke: #3498db;
+                stroke-width: 2px;
+                stroke-dasharray: 90 110;
+                animation: stroke 6s infinite linear;
+            }
+
+            .text1{
+                font-size: 64px;
+                font-weight: bold;
+                text-transform: uppercase;
+                fill: none;
+                stroke-width: 2px;
+                stroke-dasharray: 90 310;
+                animation: stroke 6s infinite linear;
+            }
+            .text-1{
+                stroke: #3498db;
+                text-shadow: 0 0 5px #3498db;
+                animation-delay: -1.5s;
+            }
+            .text-2{
+                stroke: #f39c12;
+                text-shadow: 0 0 5px #f39c12;
+                animation-delay: -3s;
+            }
+            .text-3{
+                stroke: #e74c3c;
+                text-shadow: 0 0 5px #e74c3c;
+                animation-delay: -4.5s;
+            }
+            .text-4{
+                stroke: #9b59b6;
+                text-shadow: 0 0 5px #9b59b6;
+                animation-delay: -6s;
+            }
+            @keyframes stroke {
+                100% {
+                    stroke-dashoffset: -400;
+                }
+            }
+		</style>
+	</head>
+	<body>
+    <svg
+        id="visual"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+    >
+        <path
+            d="m 77.338983,69.55932 c 0.241396,-4.891293 -1.741999,-9.849292 -5.290339,-13.224542 -3.54834,-3.375249 -8.599253,-5.10842 -13.472374,-4.622913 -3.445554,0.343279 -6.731338,1.736952 -9.610169,3.661015 -6.982481,4.666733 -11.649779,12.610347 -12.407317,20.974531 -0.757539,8.364183 2.38414,16.98524 8.288673,22.957671 6.495362,6.570058 15.768876,9.720328 24.937346,10.858088 9.16847,1.13776 18.451557,0.47916 27.689773,0.58259 3.365424,0.0377 6.762014,0.17431 10.067794,-0.45763 5.22034,-0.99792 10.00611,-3.93746 13.44868,-7.98672 3.44257,-4.049252 5.5573,-9.164796 6.22929,-14.437004 0.90117,-7.070248 -0.8198,-14.475499 -4.89729,-20.321403 -4.07748,-5.845904 -10.50249,-10.044636 -17.52644,-11.254868 -2.15506,-0.371318 -4.37586,-0.469154 -6.525399,-0.06711 -2.149537,0.402046 -4.229058,1.32377 -5.830534,2.812872 -1.351729,1.256879 -2.343199,2.918431 -2.706839,4.728039 -0.363639,1.809609 -0.07828,3.759999 0.87633,5.339756 0.606977,1.004467 1.468495,1.845532 2.454856,2.481508 0.986362,0.635975 2.095583,1.070422 3.23889,1.335419 2.286615,0.529995 4.675766,0.386323 7.002196,0.07449 2.32642,-0.311831 4.63505,-0.788997 6.97863,-0.919845 2.34359,-0.130849 4.76473,0.104665 6.8678,1.147071 1.52656,0.756654 2.84062,1.924302 3.81,3.325448 0.96938,1.401146 1.5962,3.03134 1.86151,4.714349 0.53061,3.366019 -0.40364,6.876649 -2.24788,9.74203 -1.84424,2.865381 -4.54931,5.113435 -7.54509,6.7373 -2.99578,1.623865 -6.28232,2.650605 -9.60735,3.396125 -4.213177,0.94466 -8.512459,1.45137 -12.813562,1.83051 -10.239019,0.90256 -21.034922,0.98563 -30.203389,-3.661018 -3.24205,-1.643094 -6.207633,-3.859542 -8.593677,-6.601338 -2.386043,-2.741795 -4.183301,-6.014537 -5.077542,-9.53746 -0.89424,-3.522922 -0.86947,-7.293892 0.207854,-10.765206 1.077325,-3.471314 3.222524,-6.624989 6.141331,-8.790909 3.815031,-2.830969 8.911651,-3.858439 13.525551,-2.726728 4.613901,1.131711 8.656622,4.400905 10.728687,8.675879 z"
+            id="line"
+            pathLength="1"
+            fill="none"
+            stroke="#3400dd"
+            stroke-width="4"
+        />
+    </svg>
+
+    <svg width="100%" height="100">
+        <text text-anchor="middle" x="50%" y="50%" class="text">
+            segmentfault.com
+        </text>
+    </svg>
+
+
+    <svg width="100%" height="100">
+        <text text-anchor="middle" x="50%" y="50%" class="text1 text-1">
+            segmentfault.com
+        </text>
+        <text text-anchor="middle" x="50%" y="50%" class="text1 text-2">
+            segmentfault.com
+        </text>
+        <text text-anchor="middle" x="50%" y="50%" class="text1 text-3">
+            segmentfault.com
+        </text>
+        <text text-anchor="middle" x="50%" y="50%" class="text1 text-4">
+            segmentfault.com
+        </text>
+    </svg> 
+
+		<!-- <script src="js/three.min.js"></script> -->
+		<script>
+			// const scene = new THREE.Scene()
+
+            // const camera = new THREE.PerspectiveCamera(45,window.innerWidth/window.innerHeight,1,500)
+            // camera.position.set(0,0,10)
+            // camera.lookAt(0,0,0)
+
+            // const render = new THREE.WebGLRenderer()
+            // render.setSize(window.innerWidth,window.innerHeight)
+            // document.body.appendChild(render.domElement)
+
+            // const material =  new THREE.LineBasicMaterial( { color: 0x0000ff } );
+            // const points = [];
+            // points.push( new THREE.Vector3( - 10, 0, 0 ) );
+            // points.push( new THREE.Vector3( 0, 10, 0 ) );
+            // points.push( new THREE.Vector3( 10, 0, 0 ) );
+
+            // const geometry = new THREE.BufferGeometry().setFromPoints( points );
+            // const line = new THREE.Line( geometry, material );
+
+            // scene.add(line)
+            // render.render(scene,camera)
+		</script>
+	</body>
+</html>

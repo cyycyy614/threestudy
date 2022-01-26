@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My first THREE.js app</title>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="js/THREE.min.js"></script>
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 30000);
+    camera.position.set(200, 0, 3000);
+    // camera.up.set(0, 0, 0);
+    camera.lookAt(0, 0, 0);
+
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    document.body.appendChild(renderer.domElement);
+
+
+
+    // for (let i = 0; i < 21; i++) {
+    // const geometry = new THREE.BufferGeometry();
+    // // const p1 = new THREE.Vector3((i * 40) - 400, 0, (i * 40));
+    // // const p2 = new THREE.Vector3((i * 40) - 400, 0, ((i + 1) * 40));
+    // // const p3 = new THREE.Vector3((i * 40) - 360, 0, (i * 40));
+    // const p1 = new THREE.Vector3(20, 20, 0)
+    // const p2 = new THREE.Vector3(20, -20, 0)
+    // const p3 = new THREE.Vector3(-20, -20, 0)
+    // let positions = []
+    // positions.push(p1, p2, p3);
+    // console.log(positions)
+    // geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+
+    // const vertices = new Float32Array([
+    //   -200, -200, 200,
+    //   200, -200, 200,
+    //   200, 200, 200,
+
+    //   200, 200, 200,
+    //   -200, 200, 200,
+    //   -200, -200, 200
+    // ]);
+
+    // const r = 800
+    // const x = Math.random() * r - r / 2;
+    // const y = Math.random() * r - r / 2;
+    // const z = Math.random() * r - r / 2;
+    // colors.push((x / r) + 0.5);
+    // colors.push((y / r) + 0.5);
+    // colors.push((z / r) + 0.5);
+
+    // itemSize = 3 因为每个顶点都是一个三元组。
+    // geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+
+    // geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+    // const line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ vertexColors: true }));
+    // line.position.y = (i * 40) - 400;
+
+
+    const material = new THREE.LineBasicMaterial({
+      color: 0x0000ff
+    });
+
+    for (let j = 0; j < 21; j++) {
+      for (let i = 0; i < 21; i++) {
+        const p1 = new THREE.Vector3((i * 40) - 400, (j * 40) - 400, 0);
+        const p2 = new THREE.Vector3((i * 40) - 400, ((j + 1) * 40) - 400, 0);
+        const p3 = new THREE.Vector3((i * 40) - 360, ((j + 1) * 40) - 400, 0);
+
+        const points = [];
+        points.push(p1, p2, p3)
+
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+
+        const colors = []
+        const r = 800
+        const x = Math.random() * r - r / 2;
+        const y = Math.random() * r - r / 2;
+        const z = Math.random() * r - r / 2;
+        colors.push((x / r) + 0.5);
+        colors.push((y / r) + 0.5);
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        colors.push((z / r) + 0.5);
+
+        const line = new THREE.Line(geometry, material);
+        scene.add(line);
+      }
+
+    }
+
+
+    const p1 = new THREE.Vector3(440, 840, 0);
+    const p2 = new THREE.Vector3(440, 0, 0);
+    const p3 = new THREE.Vector3(-400, 0, 0);
+
+    const points = [];
+    points.push(p1, p2, p3)
+
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    const line = new THREE.Line(geometry, material);
+    scene.add(line);
+    // const p1 = new THREE.Vector3(400, 400, 0)
+    // const p2 = new THREE.Vector3(400, -400, 0)
+    // const p3 = new THREE.Vector3(-400, -400, 0)
+    // points.push(p1, p2, p3)
+
+    // const geometry = new THREE.BufferGeometry().setFromPoints(points);
+
+    // const line = new THREE.Line(geometry, material);
+    // scene.add(line);
+    // line.position.z = 2000;
+    // line.rotation.y = 90 * Math.PI / 180;
+
+    // const lineV = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0x000000, opacity: 0.2 }));
+    // lineV.position.x = (i * 40) - 400;
+    // lineV.rotation.y = 90 * Math.PI / 180;
+    // scene.add(lineV);
+    // }
+    // 
+    // light = new THREE.DirectionalLight(0xff0000, 1.0, 0);
+    // light.position.set(100, 100, 200);
+    // scene.add(light);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+
+</html>

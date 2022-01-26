@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.min.js"></script>
+		<script>
+			const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            document.body.appendChild( renderer.domElement );
+
+            //添加立方体
+            // let geometry = new THREE.BoxGeometry(4,4,4);
+            // let material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+            // const cube = new THREE.Mesh( geometry, material );
+            // scene.add( cube );
+
+            //添加立方体1
+            geometry = new THREE.BoxGeometry(5,5,5);
+            material = new THREE.MeshBasicMaterial( { color: "#433F81" } );
+            const cube1 = new THREE.Mesh( geometry, material );
+            scene.add( cube1 );
+
+            // //添加透明立方体
+            // geometry = new THREE.BoxGeometry(7,7,7);
+            // material = new THREE.MeshBasicMaterial( { color: "#433F81",wireframe:true,transparent:true } );
+            // const cube2 = new THREE.Mesh( geometry, material );
+            // scene.add( cube2 );
+
+            // //添加立方体3
+            // geometry = new THREE.BoxGeometry(5,5,5);
+            // material = new THREE.MeshBasicMaterial( { color: "#433F81" } );
+            // const cube3 = new THREE.Mesh( geometry, material );
+            // scene.add( cube3 );
+
+            // //添加透明立方体
+            // geometry = new THREE.BoxGeometry(7,7,7);
+            // material = new THREE.MeshBasicMaterial( { color: "#433F81",wireframe:true,transparent:true } );
+            // const cube4 = new THREE.Mesh( geometry, material );
+            // scene.add( cube4 );
+
+            // //添加Bar
+            // geometry = new THREE.BoxGeometry(20,0.1,0.5)
+            // material = new THREE.MeshNormalMaterial({color:'#FFFFFF'})
+            // const bar1 = new THREE.Mesh(geometry,material)
+            // bar1.position.z = 0.5
+            // scene.add(bar1)
+
+            camera.position.z = 12;
+
+            function animate() {
+                requestAnimationFrame( animate );
+                // cube.position.x += 0.01;
+                // cube.position.y += 0.01;
+                cube1.rotation.x += 0.01;
+                cube1.rotation.y += 0.01;
+                // cube2.rotation.x -= 0.01;
+                // cube2.rotation.y -= 0.01;
+                // cube3.rotation.x -= 0.01;
+                // cube3.rotation.y -= 0.01;
+                // cube4.rotation.x += 0.01;
+                // cube4.rotation.y += 0.01;
+                // bar1.rotation.z -= 0.01;
+                renderer.render( scene, camera );
+            }
+            animate();
+		</script>
+	</body>
+</html>
